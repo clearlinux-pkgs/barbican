@@ -6,7 +6,7 @@
 #
 Name     : barbican
 Version  : 6.0.1
-Release  : 1
+Release  : 2
 URL      : https://tarballs.openstack.org/barbican/barbican-6.0.1.tar.gz
 Source0  : https://tarballs.openstack.org/barbican/barbican-6.0.1.tar.gz
 Source99 : https://tarballs.openstack.org/barbican/barbican-6.0.1.tar.gz.asc
@@ -114,7 +114,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1533875366
+export SOURCE_DATE_EPOCH=1533909568
 python3 setup.py build -b py3
 
 %check
