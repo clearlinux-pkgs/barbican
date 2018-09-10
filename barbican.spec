@@ -5,30 +5,43 @@
 # Source0 file verified with key 0xC36CDCB4DF00C68C (infra-root@openstack.org)
 #
 Name     : barbican
-Version  : 6.0.1
-Release  : 3
-URL      : https://tarballs.openstack.org/barbican/barbican-6.0.1.tar.gz
-Source0  : https://tarballs.openstack.org/barbican/barbican-6.0.1.tar.gz
-Source99 : https://tarballs.openstack.org/barbican/barbican-6.0.1.tar.gz.asc
+Version  : 7.0.0
+Release  : 4
+URL      : https://tarballs.openstack.org/barbican/barbican-7.0.0.tar.gz
+Source0  : https://tarballs.openstack.org/barbican/barbican-7.0.0.tar.gz
+Source99 : https://tarballs.openstack.org/barbican/barbican-7.0.0.tar.gz.asc
 Summary  : OpenStack Secure Key Management
 Group    : Development/Tools
 License  : Apache-2.0
 Requires: barbican-bin
+Requires: barbican-config
 Requires: barbican-python3
 Requires: barbican-license
 Requires: barbican-python
 Requires: Babel
 Requires: Paste
 Requires: PasteDeploy
+Requires: Pygments
 Requires: SQLAlchemy
+Requires: Sphinx
 Requires: WebOb
+Requires: WebTest
 Requires: alembic
+Requires: bandit
+Requires: castellan
 Requires: cffi
+Requires: coverage
 Requires: cryptography
+Requires: ddt
+Requires: doc8
 Requires: eventlet
+Requires: fixtures
+Requires: hacking
 Requires: jsonschema
 Requires: keystonemiddleware
 Requires: ldap3
+Requires: openstackdocstheme
+Requires: os-api-ref
 Requires: oslo.config
 Requires: oslo.context
 Requires: oslo.db
@@ -40,28 +53,24 @@ Requires: oslo.policy
 Requires: oslo.serialization
 Requires: oslo.service
 Requires: oslo.utils
+Requires: oslo.versionedobjects
+Requires: oslotest
 Requires: pbr
 Requires: pecan
 Requires: pyOpenSSL
 Requires: pycrypto
+Requires: python-keystoneclient
+Requires: python-mock
+Requires: reno
+Requires: requests
 Requires: six
+Requires: sphinxcontrib-httpdomain
+Requires: stestr
 Requires: stevedore
-BuildRequires : SQLAlchemy
-BuildRequires : WebOb
+Requires: testtools
 BuildRequires : buildreq-distutils3
-BuildRequires : ddt
 BuildRequires : ldap3
-BuildRequires : oslo.config
-BuildRequires : oslo.i18n
-BuildRequires : oslo.log
-BuildRequires : oslo.messaging
-BuildRequires : oslo.policy
-BuildRequires : oslo.serialization
-BuildRequires : oslo.utils
-BuildRequires : oslotest
 BuildRequires : pbr
-BuildRequires : pecan
-BuildRequires : pep8
 BuildRequires : pluggy
 BuildRequires : py-python
 BuildRequires : pycrypto
@@ -75,10 +84,19 @@ Generic single-database configuration.
 %package bin
 Summary: bin components for the barbican package.
 Group: Binaries
+Requires: barbican-config
 Requires: barbican-license
 
 %description bin
 bin components for the barbican package.
+
+
+%package config
+Summary: config components for the barbican package.
+Group: Default
+
+%description config
+config components for the barbican package.
 
 
 %package license
@@ -108,14 +126,14 @@ python3 components for the barbican package.
 
 
 %prep
-%setup -q -n barbican-6.0.1
+%setup -q -n barbican-7.0.0
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1533915742
+export SOURCE_DATE_EPOCH=1536549315
 python3 setup.py build -b py3
 
 %check
@@ -145,6 +163,10 @@ echo ----[ mark ]----
 /usr/bin/barbican-wsgi-api
 /usr/bin/pkcs11-kek-rewrap
 /usr/bin/pkcs11-key-generation
+
+%files config
+%defattr(-,root,root,-)
+%config /usr/etc/barbican/barbican-api-paste.ini
 
 %files license
 %defattr(-,root,root,-)

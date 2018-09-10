@@ -1,24 +1,103 @@
 CHANGES
 =======
 
-6.0.1
+7.0.0
 -----
 
+* Imported Translations from Zanata
+* Refactor PKCS#11 to allow configurable mechanisms
+* Imported Translations from Zanata
+* Switch to fedora-latest for testing
+* Adding support for 512-Bit-Secret-Creation when using xts-mode
+* Add doc8 to pep8 check for project
+* Skip some tests for vault plugin
+* Fix getting secret for vault plugin
+
+7.0.0.0b3
+---------
+
+* Fix response status for invalid routes
+* Update http to https and fix link in doc reference
+* Enable vault devstack functional test by default
+* Remove unused policy enforcer attributes
+* Make barbican-kmip-devstack-functional job non-voting
+* Switch to stestr
+* Initial the unit-tests of OVO for Barbican
+* Implement the "check\_exc" parameter for OVO
+* Implement OVO for Barbican [5]
+* Ensure orders policy-in-code matches controller
+* Update pypi url to new url
+* Implement OVO for Barbican [4]
+* Implement OVO for Barbican [3]
+* As of April 28th 2018, Barbican has been migrated to storyboard. The documentation should be adjusted
+* Update the periodic\_task link for retry\_scheduler
+* Update two Barbican services to Docs
+* Activate html\_static\_path config option
+* add release notes to README.rst
+* fix tox python3 overrides
+* Follow the new PTI for document build
+
+7.0.0.0b2
+---------
+
+* Implement OVO for Barbican [2]
+* Remove unused policy rules
+* Implement OVO for Barbican [1]
+* Initial OVO for Barbican
+* Remove CA API policy file
+* Imported Translations from Zanata
+* Fix broken gate due to breaking dependency changes
 * Commit DB changes on API startup
 * TrivialFix: Update block code to be more beautiful
-* Change restart the services command
-* Update auth\_uri option to www\_authenticate\_uri
+* Update the version of Ubuntu
+* Add devstack gate for vault
+* Remove pycrypto dependency
+* Fix docs build in tox.ini
+* Castellan based secret store
+* update some documents about the keystone "API v2.0"
+* Update http links for doc migration
+* Imported Translations from Zanata
+* Stop using legacy-fedora-27
+* Remove pycrypto from dogtag plugin
+* Enforce usage of oslo.context's project\_id
+
+7.0.0.0b1
+---------
+
+* Imported Translations from Zanata
+* fix lower constraints
+* Configure control\_exchange to match keystone
 * Initialize db for Barbican Keystone listener
+* Update auth\_uri option to www\_authenticate\_uri
+* Add os-testr as test dependency
+* Apply pep8 check to app.wsgi
+* Remove unused broker configuration in devstack
+* Take context from environment instead of parsing headers
+* Imported Translations from Zanata
+* Enable mutable config in Barbican
+* Do not copy policy.json when installing barbican
+* Remove use of unsupported TEMPEST\_SERVICES variable
+* Imported Translations from Zanata
+* Updated from global requirements
 * Add retries for Dogtag plugin
-* Fix fedora gate job to be f27 instead of f26
+* add lower-constraints job
+* Update to fedora-27 for testing
+* Indicating the location tests directory in oslo\_debug\_helper
+* Change restart the services command
+* Fix incomplete barbican configuration path in doc
+* Updated from global requirements
+* Update reno for stable/queens
 * Updating time for functional tests
+* Update to use new stevedore backend option
+* Set debug mode according to ENABLE\_DEBUG\_LOG\_LEVEL
+* Make grenade-devstack-barbican job voting
 * Fix the grenade-devstack-barbican gate
-* Update UPPER\_CONSTRAINTS\_FILE for stable/queens
-* Update .gitreview for stable/queens
+* Imported Translations from Zanata
 
 6.0.0
 -----
 
+* Handle URL reconstruction in PEP333 compatible fashion
 * Imported Translations from Zanata
 * Use default policy in code
 * Update doc to match our in-repo configuration file
@@ -30,6 +109,7 @@ CHANGES
 * Adding #nosec for pycrypto use
 * Modify simple\_crypto init message
 * Remove Simple Crypto plugin production warning
+* Zuul: Remove project name
 * Add secret store sync functionality to barbican-manage
 * Update virtual\_environment for genconfig and genpolicy
 * Updated from global requirements
@@ -40,6 +120,7 @@ CHANGES
 
 * Update link address
 * Updated from global requirements
+* Update the link in database\_migrations.rst
 * Ensure only api app initializes secret store
 * Remove Certificate Orders and CAs from API
 * Updated from global requirements
@@ -54,6 +135,7 @@ CHANGES
 * Remove setting of version/release from releasenotes
 * Updated from global requirements
 * Imported Translations from Zanata
+* Use assertRegex instead of assertRegexpMatches
 * Updated from global requirements
 * Use assertRegex instead of assertRegexpMatches
 * Zuul: add file extension to playbook path
@@ -75,6 +157,7 @@ CHANGES
 * Dynamically determine SSL version in unit tests
 * Delete python bytecode including pyo
 * Use Castellan's backend option instead of api\_class
+* Add default configuration files to data\_files
 * Updated from global requirements
 * Updated from global requirements
 * Add flag to allow devstack to run on f26 in gate
