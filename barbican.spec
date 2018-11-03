@@ -6,37 +6,29 @@
 #
 Name     : barbican
 Version  : 7.0.0
-Release  : 4
+Release  : 5
 URL      : https://tarballs.openstack.org/barbican/barbican-7.0.0.tar.gz
 Source0  : https://tarballs.openstack.org/barbican/barbican-7.0.0.tar.gz
 Source99 : https://tarballs.openstack.org/barbican/barbican-7.0.0.tar.gz.asc
 Summary  : OpenStack Secure Key Management
 Group    : Development/Tools
 License  : Apache-2.0
-Requires: barbican-bin
-Requires: barbican-config
-Requires: barbican-python3
-Requires: barbican-license
-Requires: barbican-python
+Requires: barbican-bin = %{version}-%{release}
+Requires: barbican-config = %{version}-%{release}
+Requires: barbican-license = %{version}-%{release}
+Requires: barbican-python = %{version}-%{release}
+Requires: barbican-python3 = %{version}-%{release}
 Requires: Babel
 Requires: Paste
 Requires: PasteDeploy
-Requires: Pygments
 Requires: SQLAlchemy
 Requires: Sphinx
 Requires: WebOb
-Requires: WebTest
 Requires: alembic
-Requires: bandit
 Requires: castellan
 Requires: cffi
-Requires: coverage
 Requires: cryptography
-Requires: ddt
-Requires: doc8
 Requires: eventlet
-Requires: fixtures
-Requires: hacking
 Requires: jsonschema
 Requires: keystonemiddleware
 Requires: ldap3
@@ -54,20 +46,15 @@ Requires: oslo.serialization
 Requires: oslo.service
 Requires: oslo.utils
 Requires: oslo.versionedobjects
-Requires: oslotest
 Requires: pbr
 Requires: pecan
 Requires: pyOpenSSL
 Requires: pycrypto
-Requires: python-keystoneclient
-Requires: python-mock
 Requires: reno
-Requires: requests
 Requires: six
+Requires: sphinxcontrib-blockdiag
 Requires: sphinxcontrib-httpdomain
-Requires: stestr
 Requires: stevedore
-Requires: testtools
 BuildRequires : buildreq-distutils3
 BuildRequires : ldap3
 BuildRequires : pbr
@@ -84,8 +71,8 @@ Generic single-database configuration.
 %package bin
 Summary: bin components for the barbican package.
 Group: Binaries
-Requires: barbican-config
-Requires: barbican-license
+Requires: barbican-config = %{version}-%{release}
+Requires: barbican-license = %{version}-%{release}
 
 %description bin
 bin components for the barbican package.
@@ -110,7 +97,7 @@ license components for the barbican package.
 %package python
 Summary: python components for the barbican package.
 Group: Default
-Requires: barbican-python3
+Requires: barbican-python3 = %{version}-%{release}
 
 %description python
 python components for the barbican package.
@@ -133,8 +120,8 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1536549315
-python3 setup.py build -b py3
+export SOURCE_DATE_EPOCH=1541264597
+python3 setup.py build
 
 %check
 export http_proxy=http://127.0.0.1:9/
@@ -143,9 +130,9 @@ export no_proxy=localhost,127.0.0.1,0.0.0.0
 PYTHONPATH=%{buildroot}/usr/lib/python3.7/site-packages python3 setup.py test || :
 %install
 rm -rf %{buildroot}
-mkdir -p %{buildroot}/usr/share/doc/barbican
-cp LICENSE %{buildroot}/usr/share/doc/barbican/LICENSE
-python3 -tt setup.py build -b py3 install --root=%{buildroot}
+mkdir -p %{buildroot}/usr/share/package-licenses/barbican
+cp LICENSE %{buildroot}/usr/share/package-licenses/barbican/LICENSE
+python3 -tt setup.py build  install --root=%{buildroot}
 echo ----[ mark ]----
 cat %{buildroot}/usr/lib/python3*/site-packages/*/requires.txt || :
 echo ----[ mark ]----
@@ -169,8 +156,8 @@ echo ----[ mark ]----
 %config /usr/etc/barbican/barbican-api-paste.ini
 
 %files license
-%defattr(-,root,root,-)
-/usr/share/doc/barbican/LICENSE
+%defattr(0644,root,root,0755)
+/usr/share/package-licenses/barbican/LICENSE
 
 %files python
 %defattr(-,root,root,-)
