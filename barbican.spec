@@ -6,7 +6,7 @@
 #
 Name     : barbican
 Version  : 7.0.0
-Release  : 6
+Release  : 7
 URL      : https://tarballs.openstack.org/barbican/barbican-7.0.0.tar.gz
 Source0  : https://tarballs.openstack.org/barbican/barbican-7.0.0.tar.gz
 Source99 : https://tarballs.openstack.org/barbican/barbican-7.0.0.tar.gz.asc
@@ -22,7 +22,6 @@ Requires: Babel
 Requires: Paste
 Requires: PasteDeploy
 Requires: SQLAlchemy
-Requires: Sphinx
 Requires: WebOb
 Requires: alembic
 Requires: castellan
@@ -32,8 +31,6 @@ Requires: eventlet
 Requires: jsonschema
 Requires: keystonemiddleware
 Requires: ldap3
-Requires: openstackdocstheme
-Requires: os-api-ref
 Requires: oslo.config
 Requires: oslo.context
 Requires: oslo.db
@@ -50,18 +47,36 @@ Requires: pbr
 Requires: pecan
 Requires: pyOpenSSL
 Requires: pycrypto
-Requires: reno
 Requires: six
-Requires: sphinxcontrib-blockdiag
-Requires: sphinxcontrib-httpdomain
 Requires: stevedore
+BuildRequires : Mako-python
+BuildRequires : SQLAlchemy-python
+BuildRequires : Tempita-python
+BuildRequires : WebOb-python
+BuildRequires : WebTest
+BuildRequires : alembic-python
 BuildRequires : buildreq-distutils3
+BuildRequires : castellan-python
+BuildRequires : cliff-python
+BuildRequires : cmd2-python
+BuildRequires : keystonemiddleware
 BuildRequires : ldap3
+BuildRequires : logutils-python
+BuildRequires : oslo.db-python
+BuildRequires : oslo.policy-python
+BuildRequires : oslo.versionedobjects-python
 BuildRequires : pbr
+BuildRequires : pecan-python
 BuildRequires : pluggy
+BuildRequires : prettytable
 BuildRequires : py-python
 BuildRequires : pycrypto
 BuildRequires : pytest
+BuildRequires : python-barbicanclient-python
+BuildRequires : python-editor-python
+BuildRequires : sqlalchemy-migrate-python
+BuildRequires : sqlparse
+BuildRequires : stevedore
 BuildRequires : tox
 BuildRequires : virtualenv
 
@@ -120,7 +135,8 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1541265585
+export SOURCE_DATE_EPOCH=1551032087
+export MAKEFLAGS=%{?_smp_mflags}
 python3 setup.py build
 
 %check
