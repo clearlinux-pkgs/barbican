@@ -1,6 +1,72 @@
 CHANGES
 =======
 
+8.0.0
+-----
+
+* Made HMAC Key Wrap mechanism configurable
+* Update json module to jsonutils
+* Remove unused code
+* Fixes for rewrap
+* Set Tempest's service\_availability setting for Barbican
+* Add venv support to the devstack plugin
+* Enable KV mountpoint configuration for Vault
+* Enable AppRole authentication support for Vault
+* Use the Octavia Barbican integration check gate
+* add python 3.7 unit test job
+* Run functional tests serially
+* Fix multiple backend test
+* Fix secret-stores functional tests
+* Remove hardcoded 'localhost' references
+* Documented ATOS and Thales config for PKCS#11 plugin
+* Address race condition in KEKDatum
+* Remove tripleo newton and ocata jobs
+* functionaltests: Add response headers to logging info
+* PY3: Ensure normalize\_before\_encryption encodes b64payload
+* Add barbican-status upgrade check command framework
+* Fix Safenet HSM regression in PKCS#11
+* Workaround for failing gates
+* Imported Translations from Zanata
+* Replace tripleo-scenario002-multinode with scenario002-standalone
+* Change openstack-dev to openstack-discuss
+* Update Octavia co-gate for python3 first
+* Imported Translations from Zanata
+* Fix Chinese quotes
+* Remove unused validator related to CA IDs
+* Clean up some config docs formatting
+* Imported Translations from Zanata
+* Add 'barbican-manage hsm check\_[mkek|hmac]
+* Imported Translations from Zanata
+* Add python 3.6 unit test job
+* Use authorize instead of enforce for policy
+* Imported Translations from Zanata
+* Fix tox -e releasenotes
+* Fix duplicate paths in secret hrefs
+* Use context instead of manually setting the credentials for policy
+* Port RuleDefaults to DocumentedRuleDefaults
+* tox: Stop building \*all\* docs in 'docs'
+* Increment versioning with pbr instruction
+* Imported Translations from Zanata
+* Update .zuul.yaml: Make barbican-vault-devstack-functional voting
+* Don't quote {posargs} in tox.ini
+* Imported Translations from Zanata
+* Fix tempest\_roles for devstack plugin
+* Imported Translations from Zanata
+* Imported Translations from Zanata
+* Fixed incorrect release note
+* Import octavia-v2-dsvm-py35-scenario
+* add python 3.6 unit test job
+* switch documentation job to new PTI
+* import zuul job settings from project-config
+* Fix CKM\_AES\_GCM encryption
+* Remove non-voting job from gate queue
+* Imported Translations from Zanata
+* Revise diretory server install commands
+* Add missing mechanism for GENERIC\_SECRETS
+* Remove -u root as mysql is executed with root user
+* Use absolute path for vault root token file in devstack
+* Update reno for stable/rocky
+
 7.0.0
 -----
 

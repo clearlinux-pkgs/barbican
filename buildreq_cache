@@ -1,5 +1,6 @@
-7.0.0
+8.0.0
 Mako-python
+Pygments
 SQLAlchemy
 SQLAlchemy-python
 Tempita-python
@@ -7,10 +8,13 @@ WebOb
 WebOb-python
 WebTest
 alembic-python
+bandit-python
 castellan-python
+cliff
 cliff-python
 cmd2-python
 ddt
+doc8-python
 keystonemiddleware
 logutils-python
 oslo.config
@@ -21,6 +25,7 @@ oslo.messaging
 oslo.policy
 oslo.policy-python
 oslo.serialization
+oslo.upgradecheck-python
 oslo.utils
 oslo.versionedobjects-python
 oslotest
