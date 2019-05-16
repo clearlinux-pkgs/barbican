@@ -6,7 +6,7 @@
 #
 Name     : barbican
 Version  : 8.0.0
-Release  : 9
+Release  : 10
 URL      : https://tarballs.openstack.org/barbican/barbican-8.0.0.tar.gz
 Source0  : https://tarballs.openstack.org/barbican/barbican-8.0.0.tar.gz
 Source99 : https://tarballs.openstack.org/barbican/barbican-8.0.0.tar.gz.asc
@@ -50,35 +50,66 @@ Requires: pyOpenSSL
 Requires: pycrypto
 Requires: six
 Requires: stevedore
+BuildRequires : Babel
+BuildRequires : Mako-python
+BuildRequires : Paste
+BuildRequires : PasteDeploy
 BuildRequires : Pygments
 BuildRequires : SQLAlchemy
 BuildRequires : SQLAlchemy-python
 BuildRequires : Tempita-python
 BuildRequires : WebOb
 BuildRequires : WebOb-python
+BuildRequires : WebTest
+BuildRequires : alembic
 BuildRequires : alembic-python
 BuildRequires : bandit-python
 BuildRequires : buildreq-distutils3
+BuildRequires : castellan
 BuildRequires : castellan-python
+BuildRequires : cffi
 BuildRequires : cliff
 BuildRequires : cliff-python
+BuildRequires : cmd2-python
+BuildRequires : cryptography
+BuildRequires : ddt
 BuildRequires : doc8-python
+BuildRequires : eventlet
+BuildRequires : jsonschema
 BuildRequires : keystonemiddleware
 BuildRequires : ldap3
+BuildRequires : logutils-python
+BuildRequires : oslo.config
+BuildRequires : oslo.context
+BuildRequires : oslo.db
 BuildRequires : oslo.db-python
+BuildRequires : oslo.i18n
+BuildRequires : oslo.log
+BuildRequires : oslo.messaging
+BuildRequires : oslo.middleware
+BuildRequires : oslo.policy
 BuildRequires : oslo.policy-python
+BuildRequires : oslo.serialization
+BuildRequires : oslo.service
+BuildRequires : oslo.upgradecheck
 BuildRequires : oslo.upgradecheck-python
+BuildRequires : oslo.utils
+BuildRequires : oslo.versionedobjects
 BuildRequires : oslo.versionedobjects-python
+BuildRequires : oslotest
 BuildRequires : pbr
 BuildRequires : pecan
 BuildRequires : pecan-python
+BuildRequires : pep8
 BuildRequires : pluggy
 BuildRequires : prettytable
 BuildRequires : py-python
+BuildRequires : pyOpenSSL
 BuildRequires : pycrypto
 BuildRequires : pytest
 BuildRequires : python-barbicanclient-python
 BuildRequires : python-editor-python
+BuildRequires : six
 BuildRequires : sqlalchemy-migrate-python
 BuildRequires : sqlparse
 BuildRequires : stevedore
@@ -140,7 +171,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1556986786
+export SOURCE_DATE_EPOCH=1558028169
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
 export NM=gcc-nm
