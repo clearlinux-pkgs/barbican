@@ -1,0 +1,2 @@
+mkdir -p %{buildroot}/usr/share/defaults/barbican
+mv %{buildroot}/usr/etc/barbican/* %{buildroot}/usr/share/defaults/barbican

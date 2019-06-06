@@ -6,7 +6,7 @@
 #
 Name     : barbican
 Version  : 8.0.0
-Release  : 10
+Release  : 11
 URL      : https://tarballs.openstack.org/barbican/barbican-8.0.0.tar.gz
 Source0  : https://tarballs.openstack.org/barbican/barbican-8.0.0.tar.gz
 Source99 : https://tarballs.openstack.org/barbican/barbican-8.0.0.tar.gz.asc
@@ -14,7 +14,7 @@ Summary  : OpenStack Secure Key Management
 Group    : Development/Tools
 License  : Apache-2.0
 Requires: barbican-bin = %{version}-%{release}
-Requires: barbican-config = %{version}-%{release}
+Requires: barbican-data = %{version}-%{release}
 Requires: barbican-license = %{version}-%{release}
 Requires: barbican-python = %{version}-%{release}
 Requires: barbican-python3 = %{version}-%{release}
@@ -122,19 +122,19 @@ Generic single-database configuration.
 %package bin
 Summary: bin components for the barbican package.
 Group: Binaries
-Requires: barbican-config = %{version}-%{release}
+Requires: barbican-data = %{version}-%{release}
 Requires: barbican-license = %{version}-%{release}
 
 %description bin
 bin components for the barbican package.
 
 
-%package config
-Summary: config components for the barbican package.
-Group: Default
+%package data
+Summary: data components for the barbican package.
+Group: Data
 
-%description config
-config components for the barbican package.
+%description data
+data components for the barbican package.
 
 
 %package license
@@ -171,7 +171,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1558028169
+export SOURCE_DATE_EPOCH=1559833534
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
 export NM=gcc-nm
@@ -196,6 +196,10 @@ python3 -tt setup.py build  install --root=%{buildroot}
 echo ----[ mark ]----
 cat %{buildroot}/usr/lib/python3*/site-packages/*/requires.txt || :
 echo ----[ mark ]----
+## install_append content
+mkdir -p %{buildroot}/usr/share/defaults/barbican
+mv %{buildroot}/usr/etc/barbican/* %{buildroot}/usr/share/defaults/barbican
+## install_append end
 
 %files
 %defattr(-,root,root,-)
@@ -212,9 +216,9 @@ echo ----[ mark ]----
 /usr/bin/pkcs11-kek-rewrap
 /usr/bin/pkcs11-key-generation
 
-%files config
+%files data
 %defattr(-,root,root,-)
-%config /usr/etc/barbican/barbican-api-paste.ini
+/usr/share/defaults/barbican/barbican-api-paste.ini
 
 %files license
 %defattr(0644,root,root,0755)
