@@ -1,0 +1,37 @@
+From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
+From: Patrick McCarty <patrick.mccarty@intel.com>
+Date: Tue, 27 Aug 2019 08:26:56 -0700
+Subject: [PATCH] Unfreeze jsonschema
+
+Signed-off-by: Patrick McCarty <patrick.mccarty@intel.com>
+---
+ barbican.egg-info/requires.txt | 2 +-
+ requirements.txt               | 2 +-
+ 2 files changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/barbican.egg-info/requires.txt b/barbican.egg-info/requires.txt
+index a593370..3c0d4cf 100644
+--- a/barbican.egg-info/requires.txt
++++ b/barbican.egg-info/requires.txt
+@@ -3,7 +3,7 @@ Babel!=2.4.0,>=2.3.4
+ cffi>=1.7.0
+ cryptography>=2.1
+ eventlet!=0.18.3,!=0.20.1,>=0.18.2
+-jsonschema<3.0.0,>=2.6.0
++jsonschema
+ oslo.config>=5.2.0
+ oslo.context>=2.19.2
+ oslo.db>=4.27.0
+diff --git a/requirements.txt b/requirements.txt
+index 8aae045..0a1f5b0 100644
+--- a/requirements.txt
++++ b/requirements.txt
+@@ -6,7 +6,7 @@ Babel!=2.4.0,>=2.3.4 # BSD
+ cffi>=1.7.0 # MIT
+ cryptography>=2.1 # BSD/Apache-2.0
+ eventlet>=0.18.2,!=0.18.3,!=0.20.1  # MIT
+-jsonschema<3.0.0,>=2.6.0 # MIT
++jsonschema
+ oslo.config>=5.2.0 # Apache-2.0
+ oslo.context>=2.19.2 # Apache-2.0
+ oslo.db>=4.27.0 # Apache-2.0

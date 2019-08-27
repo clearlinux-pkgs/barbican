@@ -6,10 +6,10 @@
 #
 Name     : barbican
 Version  : 8.0.0
-Release  : 12
+Release  : 13
 URL      : https://tarballs.openstack.org/barbican/barbican-8.0.0.tar.gz
 Source0  : https://tarballs.openstack.org/barbican/barbican-8.0.0.tar.gz
-Source99 : https://tarballs.openstack.org/barbican/barbican-8.0.0.tar.gz.asc
+Source1 : https://tarballs.openstack.org/barbican/barbican-8.0.0.tar.gz.asc
 Summary  : OpenStack Secure Key Management
 Group    : Development/Tools
 License  : Apache-2.0
@@ -115,6 +115,7 @@ BuildRequires : sqlparse
 BuildRequires : stevedore
 BuildRequires : tox
 BuildRequires : virtualenv
+Patch1: 0001-Unfreeze-jsonschema.patch
 
 %description
 Generic single-database configuration.
@@ -165,13 +166,15 @@ python3 components for the barbican package.
 
 %prep
 %setup -q -n barbican-8.0.0
+%patch1 -p1
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
-export LANG=C
-export SOURCE_DATE_EPOCH=1559833534
+export LANG=C.UTF-8
+export SOURCE_DATE_EPOCH=1566919748
+export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
 export NM=gcc-nm
