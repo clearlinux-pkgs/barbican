@@ -6,7 +6,7 @@
 #
 Name     : barbican
 Version  : 8.0.0
-Release  : 13
+Release  : 14
 URL      : https://tarballs.openstack.org/barbican/barbican-8.0.0.tar.gz
 Source0  : https://tarballs.openstack.org/barbican/barbican-8.0.0.tar.gz
 Source1 : https://tarballs.openstack.org/barbican/barbican-8.0.0.tar.gz.asc
