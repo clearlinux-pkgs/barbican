@@ -6,10 +6,10 @@
 #
 Name     : barbican
 Version  : 8.0.0
-Release  : 14
+Release  : 15
 URL      : https://tarballs.openstack.org/barbican/barbican-8.0.0.tar.gz
 Source0  : https://tarballs.openstack.org/barbican/barbican-8.0.0.tar.gz
-Source1 : https://tarballs.openstack.org/barbican/barbican-8.0.0.tar.gz.asc
+Source1  : https://tarballs.openstack.org/barbican/barbican-8.0.0.tar.gz.asc
 Summary  : OpenStack Secure Key Management
 Group    : Development/Tools
 License  : Apache-2.0
@@ -166,6 +166,7 @@ python3 components for the barbican package.
 
 %prep
 %setup -q -n barbican-8.0.0
+cd %{_builddir}/barbican-8.0.0
 %patch1 -p1
 
 %build
@@ -173,7 +174,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1566919748
+export SOURCE_DATE_EPOCH=1576008447
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
@@ -189,12 +190,12 @@ python3 setup.py build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
-PYTHONPATH=%{buildroot}/usr/lib/python3.7/site-packages python3 setup.py test || :
+PYTHONPATH=%{buildroot}$(python -c "import sys; print(sys.path[-1])") python setup.py test || :
 %install
 export MAKEFLAGS=%{?_smp_mflags}
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/barbican
-cp LICENSE %{buildroot}/usr/share/package-licenses/barbican/LICENSE
+cp %{_builddir}/barbican-8.0.0/LICENSE %{buildroot}/usr/share/package-licenses/barbican/69476ef5e3ac8d84b3cc2e85913f2b22f68e393c
 python3 -tt setup.py build  install --root=%{buildroot}
 echo ----[ mark ]----
 cat %{buildroot}/usr/lib/python3*/site-packages/*/requires.txt || :
@@ -225,7 +226,7 @@ mv %{buildroot}/usr/etc/barbican/* %{buildroot}/usr/share/defaults/barbican
 
 %files license
 %defattr(0644,root,root,0755)
-/usr/share/package-licenses/barbican/LICENSE
+/usr/share/package-licenses/barbican/69476ef5e3ac8d84b3cc2e85913f2b22f68e393c
 
 %files python
 %defattr(-,root,root,-)
