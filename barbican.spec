@@ -6,7 +6,7 @@
 #
 Name     : barbican
 Version  : 8.0.0
-Release  : 15
+Release  : 16
 URL      : https://tarballs.openstack.org/barbican/barbican-8.0.0.tar.gz
 Source0  : https://tarballs.openstack.org/barbican/barbican-8.0.0.tar.gz
 Source1  : https://tarballs.openstack.org/barbican/barbican-8.0.0.tar.gz.asc
@@ -159,6 +159,38 @@ python components for the barbican package.
 Summary: python3 components for the barbican package.
 Group: Default
 Requires: python3-core
+Provides: pypi(barbican)
+Requires: pypi(alembic)
+Requires: pypi(babel)
+Requires: pypi(castellan)
+Requires: pypi(cffi)
+Requires: pypi(cryptography)
+Requires: pypi(eventlet)
+Requires: pypi(jsonschema)
+Requires: pypi(keystonemiddleware)
+Requires: pypi(ldap3)
+Requires: pypi(oslo.config)
+Requires: pypi(oslo.context)
+Requires: pypi(oslo.db)
+Requires: pypi(oslo.i18n)
+Requires: pypi(oslo.log)
+Requires: pypi(oslo.messaging)
+Requires: pypi(oslo.middleware)
+Requires: pypi(oslo.policy)
+Requires: pypi(oslo.serialization)
+Requires: pypi(oslo.service)
+Requires: pypi(oslo.upgradecheck)
+Requires: pypi(oslo.utils)
+Requires: pypi(oslo.versionedobjects)
+Requires: pypi(paste)
+Requires: pypi(pastedeploy)
+Requires: pypi(pbr)
+Requires: pypi(pecan)
+Requires: pypi(pyopenssl)
+Requires: pypi(six)
+Requires: pypi(sqlalchemy)
+Requires: pypi(stevedore)
+Requires: pypi(webob)
 
 %description python3
 python3 components for the barbican package.
@@ -174,7 +206,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1576008447
+export SOURCE_DATE_EPOCH=1584642570
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
